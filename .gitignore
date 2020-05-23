@@ -1,3 +1,7 @@
-.python-version
 __pycache__/
 .ipynb_checkpoints/
+.pytest_cache/
+.python-version
+.vscode/
+build/
+*.egg-info/
