@@ -1,11 +1,11 @@
-from plonk.fft.fft import naive_eval, fft, ifft
+from plonk.fft.fft import polynomial_eval_prime, fft, ifft
 from ethsnarks.field import FQ
 
 
-def test_naive_eval():
-    assert naive_eval([3, 0, 1], 0, 5) == 3
-    assert naive_eval([3, 0, 1], 1, 5) == 4
-    assert naive_eval([3, 0, 1], 2, 5) == 2
+def test_polynomial_eval_prime():
+    assert polynomial_eval_prime([3, 0, 1], 0, 5) == 3
+    assert polynomial_eval_prime([3, 0, 1], 1, 5) == 4
+    assert polynomial_eval_prime([3, 0, 1], 2, 5) == 2
 
 
 def test_mul_poly():
@@ -52,7 +52,7 @@ def test_fft():
     p_x = fft(p, domain, poly)
 
     for x in _domain:
-        result.append(naive_eval(poly, x, p, 1, 0))
+        result.append(polynomial_eval_prime(poly, x, p, 1, 0))
 
     assert p_x == result
 

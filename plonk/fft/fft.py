@@ -14,7 +14,7 @@ def roots_of_unity(order):
     return [a ** (i * (p - 1) / order) for i in range(order)]
 
 
-def naive_eval(coef, x, p, step_size=1, start_power=0):
+def polynomial_eval_prime(coef, x, p, step_size=1, start_power=0):
     res = []
     power = x ** start_power
     for i in coef:
