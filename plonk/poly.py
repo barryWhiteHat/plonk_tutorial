@@ -1,6 +1,6 @@
 from scipy.interpolate import lagrange
 
-def eval(coef, x):
+def polynomial_eval(coef, x):
     res = []
     power = 1
     for i in coef:
