@@ -31,9 +31,9 @@ def add_mul_constarint(Ql, Qr, Qm, Qo, Qc):
 
 def add_constant_constraint(Ql, Qr, Qm, Qo, Qc, const):
 
-    Ql.append(0)
+    Ql.append(1)
     Qr.append(0)
-    Qm.append(1)
+    Qm.append(0)
     Qo.append(0)
     Qc.append(-const)
 
