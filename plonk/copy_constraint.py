@@ -1,4 +1,4 @@
-from .poly import lagrange, polynomial_eval
+from .poly import polynomial_eval
 
 
 def copy_constraint_simple(eval_domain, Xcoef, Ycoef, v1, v2):
@@ -23,7 +23,7 @@ def find_permutation(wires):
     size = len(wires)
     permutation = [i for i in range(size)]
     for i in range(size):
-        for j in range(i+1, size):
+        for j in range(i + 1, size):
             if wires[i] == wires[j]:
                 place_holder = permutation[i]
                 permutation[i] = permutation[j]
