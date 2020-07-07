@@ -22,8 +22,8 @@ def polynomial_division(poly, q):
     return (False, result)
 
 
-def gen_poly(y):
-    x = range(0, len(y))
+def gen_poly(x, y):
+    # x = range(0, len(y))
     poly = lagrange(x, y)
     poly = [float(x) for x in reversed(poly.coefficients)]
     return poly

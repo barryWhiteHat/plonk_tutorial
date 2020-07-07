@@ -17,8 +17,16 @@ def copy_constraint_simple(eval_domain, Xcoef, Ycoef, v1, v2):
     return (x, Y, Px, rlc)
 
 
-def find_permutation(copies, eval_domain):
-
-    perm = lagrange(eval_domain, copies)
-    perm = [float(x) for x in reversed(perm.coefficients)]
-    return perm
+def find_permutation(wires):
+    # This function takes an array "wires" of arbitrary values and returns an
+    # array with shuffles the indices of "wires" for repeating values
+    size = len(wires)
+    permutation = [i for i in range(size)]
+    for i in range(size):
+        for j in range(i+1, size):
+            if wires[i] == wires[j]:
+                place_holder = permutation[i]
+                permutation[i] = permutation[j]
+                permutation[j] = place_holder
+                break
+    return permutation
