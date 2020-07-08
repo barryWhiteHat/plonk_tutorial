@@ -25,6 +25,6 @@ def find_permutation(wires):
     for i in range(size):
         for j in range(i + 1, size):
             if wires[i] == wires[j]:
-                permutation[i],  permutation[j] =  permutation[j],  permutation[i]
+                permutation[i], permutation[j] = permutation[j], permutation[i]
                 break
     return permutation
