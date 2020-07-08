@@ -1,5 +1,5 @@
-from .copy_constraint import find_permutation
 from .constraint import add_mul_constarint, add_add_constarint, add_constant_constraint
+from .poly import gen_poly
 
 
 def gen_witness(x):
@@ -53,9 +53,9 @@ def gen_copy_constraints():
 
     eval_domain = range(0, len(copy_constraints))
 
-    x_a_prime = find_permutation(copy_constraints[0:6], eval_domain[0:6])
-    x_b_prime = find_permutation(copy_constraints[6:12], eval_domain[6:12])
-    x_c_prime = find_permutation(copy_constraints[12:18], eval_domain[12:18])
+    x_a_prime = gen_poly(copy_constraints[0:6], eval_domain[0:6])
+    x_b_prime = gen_poly(copy_constraints[6:12], eval_domain[6:12])
+    x_c_prime = gen_poly(copy_constraints[12:18], eval_domain[12:18])
 
     return (x_a_prime, x_b_prime, x_c_prime, copy_constraints)
 
