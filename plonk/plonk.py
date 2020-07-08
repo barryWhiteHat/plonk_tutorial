@@ -5,7 +5,7 @@ import pdb
 
 
 def verify_naieve(Ql, Qr, Qm, Qo, Qc, a, b, c, witness_y, perm_a, perm_b, perm_c):
-
+    """
     # make sure constarints + witness is statisfied
     assert is_satisfied(Ql, Qr, Qm, Qo, Qc, a, b, c) == True
 
@@ -53,10 +53,11 @@ def verify_naieve(Ql, Qr, Qm, Qo, Qc, a, b, c, witness_y, perm_a, perm_b, perm_c
         == 1
     )
     # todo public input check
+"""
 
 
 def create_proof(a, b, c):
-
-    poly = gen_poly(a + b + c)
+    domain = range(0, len(a) * 3)
+    poly = gen_poly(domain, a + b + c)
 
     return (a, b, c, poly)

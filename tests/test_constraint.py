@@ -135,7 +135,7 @@ def test_permutation():
     witness = [3, 9, 27, 1, 1, 30, 3, 3, 3, 5, 35, 5, 9, 27, 30, 5, 35, 35]
     eval_domain = [i for i in range(0, len(witness))]
 
-    witness_y = gen_poly(witness, eval_domain)
+    witness_y = gen_poly(eval_domain, witness)
 
     for i, val in enumerate(witness):
         assert val == polynomial_eval(witness_y, i)
