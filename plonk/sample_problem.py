@@ -53,9 +53,9 @@ def gen_copy_constraints():
 
     eval_domain = range(0, len(copy_constraints))
 
-    x_a_prime = gen_poly(copy_constraints[0:6], eval_domain[0:6])
-    x_b_prime = gen_poly(copy_constraints[6:12], eval_domain[6:12])
-    x_c_prime = gen_poly(copy_constraints[12:18], eval_domain[12:18])
+    x_a_prime = gen_poly(eval_domain[0:6], copy_constraints[0:6])
+    x_b_prime = gen_poly(eval_domain[0:6], copy_constraints[6:12])
+    x_c_prime = gen_poly(eval_domain[0:6], copy_constraints[12:18])
 
     return (x_a_prime, x_b_prime, x_c_prime, copy_constraints)
 
