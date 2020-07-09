@@ -9,7 +9,7 @@ def copy_constraint_simple(eval_domain, Xcoef, Ycoef, v1, v2):
 
     for i in range(0, len(eval_domain)):
         x.append(polynomial_eval(Xcoef, eval_domain[i]))
-        Y.append(polynomial_eval(Ycoef, x[i]))
+        Y.append(polynomial_eval(Ycoef, eval_domain[i]))
 
         rlc.append(v1 + x[i] + v2 * Y[i])
         Px.append(Px[i] * (v1 + x[i] + v2 * Y[i]))
