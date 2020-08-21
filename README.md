@@ -19,3 +19,6 @@ pip install -e .[test]
 ```bash
 pytest --nbval
 ```
+## Community
+
+https://t.me/plonk_tutorial
