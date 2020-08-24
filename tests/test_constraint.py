@@ -1,8 +1,8 @@
 from plonk.constraint import add_add_constarint, is_satisfied, add_mul_constarint
-from plonk.copy_constraint import copy_constraint_simple, find_permutation
+from plonk.copy_constraint import copy_constraint_simple
 from plonk.sample_problem import gen_witness, setup
 from plonk.plonk import create_proof, verify_naieve
-from plonk.poly import polynomial_division, polynomial_eval
+from plonk.poly import polynomial_division, polynomial_eval, gen_poly
 
 
 def test_addition():
@@ -97,7 +97,7 @@ def test_copy_constraint_simple():
 
     copies = [0, 3, 2, 1]
 
-    Xcoef = find_permutation(copies, eval_domain)
+    Xcoef = gen_poly(copies, eval_domain)
 
     eval_domain = [0, 1, 2, 3]
 
@@ -134,9 +134,8 @@ def test_permutation():
 
     witness = [3, 9, 27, 1, 1, 30, 3, 3, 3, 5, 35, 5, 9, 27, 30, 5, 35, 35]
     eval_domain = [i for i in range(0, len(witness))]
-    witness_x_1 = find_permutation(eval_domain, eval_domain)
 
-    witness_y = find_permutation(witness, eval_domain)
+    witness_y = gen_poly(eval_domain, witness)
 
     for i, val in enumerate(witness):
         assert val == polynomial_eval(witness_y, i)
